@@ -6,7 +6,8 @@ const express = require('express'),
     mongoose = require('mongoose'),
     axios = require('axios'),
     cheerio = require('cheerio'),
-    CronJob = require('cron').CronJob;
+    CronJob = require('cron').CronJob,
+    cronScrape = require('./server/scrape');
 
 
 
@@ -67,7 +68,7 @@ app.use('/notes', notes);
 // CRON JOB SETUP
 const job = new CronJob('0 */30 * * * *', function () {
     const d = new Date();
-    //scrape();
+    cronScrape();
     console.log('Cron interval scrape complete:', d);
 });
 
