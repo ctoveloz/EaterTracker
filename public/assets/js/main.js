@@ -22,10 +22,12 @@ $(document).ready(function () {
     }
 
 
+
     // Function to display error modal
     function showErrorModal(error) {
         $('#error').modal('show');
     }
+
 
 
     // Function to display note modal
@@ -44,10 +46,14 @@ $(document).ready(function () {
             .appendTo('#noteArea');            
     }
 
+
+
     // Event to reload page when modal is closed
     $('#alertModal').on('hide.bs.modal', function (e) {
         window.location.href = '/';
     });
+
+
 
     // Event to scrape new articles
     $('#scrapeNew').on('click', function (e) {
@@ -66,6 +72,8 @@ $(document).ready(function () {
             }
         });
     });
+
+
 
     // Event to scrape archive articles
     $('#scrapeArchive').on('click', function (e) {
@@ -117,6 +125,8 @@ $(document).ready(function () {
 
     });
 
+
+
     // Event to save article
     $(document).on('click', '.saveArticle', function (e) {
         let articleId = $(this).data('id');
@@ -131,6 +141,8 @@ $(document).ready(function () {
             }
         });
     });
+
+
 
     // Event to hide article
     // (hide instead of delete to keep articles from
@@ -148,6 +160,8 @@ $(document).ready(function () {
             }
         });
     });  
+
+
 
     // Event to add/populate note modal
     $('.addNote').on('click', function (e) {
@@ -170,11 +184,15 @@ $(document).ready(function () {
         });
     }); 
 
+
+
     // Event to create note
     $('#submitNote').on('click', function (e) {
         e.preventDefault();
         postNote($(this));
     }); 
+
+
 
     // Event to delete article
     $('.delArticle').on('click', function (e) {
@@ -191,6 +209,8 @@ $(document).ready(function () {
             }
         });
     });
+
+
 
     // Event to delete note
     $(document).on('click', '.deleteNote', function (e) {
@@ -214,6 +234,8 @@ $(document).ready(function () {
         });
     });
 
+
+    
     // Event to get notes for modal
     $(document).on('click', '.note', function (e) {
         e.stopPropagation();
