@@ -1,0 +1,65 @@
+<header class="jumbotron">
+  <h1 class="display-4 text-center">Eater Tracker</h1>
+  <h2 class="display-5 text-center">Saved Articles</h5>
+    <div class="mt-4 text-center">
+      <a href="/"><button class="btn btn-primary">Home</button></a>
+      <button class="btn btn-danger" id="scrape" data-toggle="modal" data-target="#alertModal">DESTORY ALL DATA</button>
+    </div>
+</header>
+
+<main>
+  <table class="table table-striped table-hover">
+    <thead>
+      <tr>
+        <th scope="col">Saved Articles</th>
+        <th scope="col">Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      {{#each articles}}
+      {{#if wantToGo}}
+      <tr>
+        <th scope="row">
+          <a href="{{link}}" class="" target="_blank">{{title}}</a>
+        </th>
+        <td>
+          <button class="btn btn-primary addNote" data-id="{{_id}}">Notes</button>
+          <button class="btn btn-primary delArticle" data-id="{{_id}}">Delete Article</button>
+        </td>
+      </tr>
+      {{/if}}
+      {{/each}}
+</main>
+
+  {{!-- Note modal --}}
+  <div id="noteModal" class="modal fade" role="dialog">
+    <div class="modal-dialog modal-md">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title text-center">Add &amp; View Notes</h4>          
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>
+        <div class="modal-body">
+          <textarea type="text" id="noteBodyEntry" style="width:100%" placeholder="Input your note here..."></textarea>
+          <div id="noteArea"></div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary" id="submitNote">Save Note</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+{{!-- Error modal --}}
+<div id="error" class="modal fade" role="dialog">
+  <div class="modal-dialog modal-md">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+      </div>
+      <div class="modal-body">
+        <h2>There was an error with this operation.</h2>
+      </div>
+    </div>
+  </div>
+</div>
